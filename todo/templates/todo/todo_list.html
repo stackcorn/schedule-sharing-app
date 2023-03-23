@@ -12,6 +12,7 @@
     <tr>
       <td>{{ task.title }}</td>
       <td>{{ task.scheduled_date }}</td>
+      <td><a href="{% url 'detail' task.pk %}">詳細</a></td>
     </tr>
     {% endfor %}
   </tbody>
