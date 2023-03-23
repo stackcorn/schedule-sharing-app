@@ -11,6 +11,7 @@ from .models import Todo
 class TodoList(ListView):
     model = Todo
     context_object_name = 'tasks'
+    ordering = ['scheduled_date'] # 予定日で昇順に並び替える
 
 
 class TodoDetail(DetailView):
