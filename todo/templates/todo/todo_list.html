@@ -19,11 +19,9 @@
     <tbody>
       {% for task in tasks %}
       <tr>
-        <td>{{ task.title }}</td>
+        <td><a href="{% url 'detail' task.pk %}">{{ task.title }}</a></td>
         <td>{{ task.scheduled_date }}</td>
         <td>
-          <a href="{% url 'detail' task.pk %}">詳細</a>
-          <a href="{% url 'update' task.pk %}">編集</a>
           <a href="{% url 'delete' task.pk %}">削除</a>
         </td>
       </tr>

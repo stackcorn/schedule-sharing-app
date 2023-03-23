@@ -12,5 +12,8 @@
     <p><small class="text-muted">{{task.scheduled_date}}</small></p>
   </div>
 </div>
-<a class="btn btn-outline-secondary mt-2" href="{% url 'list' %}" role="button">戻る</a>
+<div class="d-flex">
+  <p><a class="btn mt-2" href="{% url 'list' %}" role="button">戻る</a></p>
+  <p><a class="btn mt-2" href="{% url 'update' task.pk %}" role="button">編集</a></p>
+</div>
 {% endblock content %}
