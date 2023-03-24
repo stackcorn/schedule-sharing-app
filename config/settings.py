@@ -131,3 +131,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add
+LOGIN_URL = 'account:login' # ログインのURLの設定
+LOGIN_REDIRECT_URL = 'todo:list' #ログインが完了した後に遷移するURL

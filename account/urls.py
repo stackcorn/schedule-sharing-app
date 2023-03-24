@@ -1,8 +1,9 @@
 from django.urls import path, include
-from .views import TopView
+from .views import Top, Login
 
 app_name ='account'
 
 urlpatterns = [
-    path('', TopView.as_view(), name='top'),
+    path('', Top.as_view(), name='top'),
+    path('login/', Login.as_view(), name='login'),
 ]
