@@ -1,13 +1,14 @@
-from django.shortcuts import render
 from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView, DeleteView
+    ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 )
-from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 
 from .models import Todo
 
+
+class TodoHome(TemplateView):
+    template_name = 'todo/home.html'
 
 class TodoList(ListView):
     model = Todo
