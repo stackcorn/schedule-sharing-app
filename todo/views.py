@@ -14,7 +14,6 @@ class TodoList(ListView):
     context_object_name = 'tasks'
     ordering = ['scheduled_date'] # 予定日で昇順に並び替える
 
-
 class TodoDetail(DetailView):
     model = Todo
     context_object_name = 'task'
