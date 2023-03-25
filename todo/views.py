@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
-
+from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 
 from .models import Todo
@@ -32,3 +33,9 @@ class TodoDelete(DeleteView):
     model = Todo
     context_object_name = 'task'
     success_url = reverse_lazy('list')
+
+class TodoLogin(LoginView):
+    redirect_authenticated_user=True
+    template_name='todo/login.html'
+    next_page = 'list'
+
