@@ -2,11 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class Plans(models.Model):
+class Plan(models.Model):
     owner = models.ForeignKey(
         User,
         on_delete=models.CASCADE, # 参照先が削除された場合、参照元のレコードも削除される
-        related_name='plans_owner', # related_nameを使うことで逆参照が可能となる
+        related_name='plan_owner', # related_nameを使うことで逆参照が可能となる
         )
     group = models.ForeignKey(
         'Group',
