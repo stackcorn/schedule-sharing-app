@@ -1,8 +1,0 @@
-{% extends 'todo/base.html' %}
-
-{% block content %}
-<form method="POST">{% csrf_token %}
-  {{ form }}
-  <button type="submit">ログイン</button>
-</form>
-{% endblock content %}
