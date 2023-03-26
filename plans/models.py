@@ -19,7 +19,8 @@ class Plans(models.Model):
         return str(self.content) + ' (' + str(self.owner) + ')'
     
     class Meta:
-        ordering = ('created_at') # 投稿が古い順に並び替える
+        # 'ordering' must be a tuple or list (even if you want to order by only one field).
+        ordering = ('created_at',) # 投稿が古い順に並び替える
 
 class Group(models.Model):
     owner = models.ForeignKey(
