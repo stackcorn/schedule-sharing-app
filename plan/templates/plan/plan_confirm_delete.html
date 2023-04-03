@@ -1,16 +1,19 @@
 {% extends 'plan/base.html' %}
 
 {% block content %}
-<div class="container">
+<h1>本当に削除しますか？</h1>
+<form action="" method="POST">{% csrf_token %}
   <div class="card" style="width: 42rem;">
     <div class="card-body">
       <h5 class="card-title">{{ plan.title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ plan.created_by }}</h6>
       <p class="card-text">{{ plan.description }}</p>
       <p class="card-subtitle mb-2 text-muted">{{ plan.scheduled_date }}</p>
-      <a href="{% url 'list' %}" class="card-link">一覧へ</a>
-      <a href="{% url 'delete' plan.pk %}" class="card-link">削除</a>
     </div>
   </div>
-</div>
+  <div class="d-flex mt-3">
+    <a href="{% url 'list' %}" class="btn me-3">一覧へ</a>
+    <input type="submit" value="削除">
+  </div>
+</form>
 {% endblock content %}
