@@ -1,0 +1,23 @@
+{% extends 'plan/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container">
+  <form action="" method="POST">{% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">タイトル</label>
+      {{ form.title | add_class:'form-control' }}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">概要</label>
+      {{ form.description | add_class:'form-control' }}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">予定日</label>
+      {{ form.scheduled_date | add_class:'form-control' }}
+    </div>
+    <input type="hidden" value="{{ user.get_username }}" name="created_by">
+    <input type="submit" value="送信">
+  </form>
+</div>
+{% endblock content %}
