@@ -1,0 +1,9 @@
+{% extends 'plan/base.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>{{ plan.title }}</h2>
+  <p>{{ plan.scheduled_date }}</p>
+  <p>{{ plan.description }}</p>
+</div>
+{% endblock content %}

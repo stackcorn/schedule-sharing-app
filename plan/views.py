@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView ,DetailView
 
 from .models import *
 
@@ -6,3 +6,7 @@ from .models import *
 class PlanList(ListView):
     model = Plan
     context_object_name = 'plans'
+
+class PlanDetail(DetailView):
+    model = Plan
+    context_object_name = 'plan'
