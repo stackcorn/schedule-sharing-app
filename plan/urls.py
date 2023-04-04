@@ -8,4 +8,5 @@ urlpatterns = [
     path('detail/<int:pk>', PlanDetail.as_view(), name='detail'),
     path('create/', PlanCreate.as_view(), name='create'),
     path('delete/<int:pk>', PlanDelete.as_view(), name='delete'),
+    path('signout/', signout, name='signout'),
 ]
