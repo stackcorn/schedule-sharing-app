@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for plan in plans %}
-<a href="{% url 'detail' plan.pk %}" class="list-group-item list-group-item-action mb-1">
+<a href="{% url 'plan:detail' plan.pk %}" class="list-group-item list-group-item-action mb-1">
   <div class="alert alert-light" role="alert">
     <h4 class="alert-heading">{{ plan.title }}</h4>
     <p>{{ plan.scheduled_date }}</p>
