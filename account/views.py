@@ -43,10 +43,10 @@ def signin(request):
             if user is not None:
                 login(request, user)
                 # Redirect to a success page
-                return redirect('home:index')
+                return redirect('schedule:schedule_list')
             else:
                 # Return an 'invalid login' error message.
-                params['context'] = 'メールアドレス、またはパスワードが違います'
+                params['context'] = 'サインインに失敗しました'
                 return render(request, template_name, params)
     else:
         return render(request, template_name, params)

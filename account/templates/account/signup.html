@@ -3,7 +3,8 @@
 
 {% block content %}
 <div class="container">
-  <h2>Sign up</h2>
+  <h2 class="mb-3">Sign up</h2>
+  <p class="mb-3">{{ context }}</p>
   <form method="POST">{% csrf_token %}
     <div class="mb-3">
       <label for="room_name" class="form-label">Room name</label>
