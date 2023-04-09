@@ -6,6 +6,10 @@
   <h2>Sign in</h2>
   <form method="POST">{% csrf_token %}
     <div class="mb-3">
+      <label for="room_name" class="form-label">Room name</label>
+      {{ form.room_name | add_class:'form-control' }}
+    </div>
+    <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       {{ form.email | add_class:'form-control' }}
       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
