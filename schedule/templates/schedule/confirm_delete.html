@@ -1,6 +1,7 @@
 {% extends 'schedule/base.html' %}
 
 {% block content %}
+<h2 class="mb-3">Do you really want to delete it?</h2>
 <div class="alert alert-light" role="alert">
   <div class="d-flex w-100 justify-content-between mb-5">
     <h4 class="alert-heading">{{ schedule.title }}</h4>
@@ -15,8 +16,10 @@
   </div>
   <hr>
   <div class="d-flex">
-    <p class="me-3"><a href="{% url 'schedule:schedule_list' %}" class="btn">Back</a></p>
-    <p><a href="{% url 'schedule:schedule_delete' schedule.pk %}" class="btn btn-outline-danger">Delete schedule</a></p>
+    <p class="me-3"><a href="{% url 'schedule:schedule_list' %}" class="btn">Back List</a></p>
+    <form method="POST">{% csrf_token %}
+      <input type="submit" value="Delete schedule" class="btn btn-danger">
+    </form>
   </div>
 </div>
 {% endblock content %}

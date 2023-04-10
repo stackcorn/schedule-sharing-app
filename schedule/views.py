@@ -20,3 +20,15 @@ def schedule_detail(request, pk):
     schedule = get_object_or_404(Schedule, id=pk, user=request.user)
     params['schedule'] = schedule
     return render(request, template_name, params)
+
+@login_required
+def schedule_delete(request, pk):
+    template_name = 'schedule/confirm_delete.html'
+    params = {}
+    schedule = get_object_or_404(Schedule, id=pk, user=request.user)
+    params['schedule'] = schedule
+    if request.method == 'POST':
+        schedule.delete()
+        return redirect('schedule:schedule_list')
+    else:
+        return render(request, template_name, params)
