@@ -3,7 +3,7 @@
 {% block content %}
 <div class="list-group">
   {% for schedule in schedules %}
-  <a href="#" class="list-group-item list-group-item-action">
+  <a href="{% url 'schedule:schedule_detail' schedule.pk %}" class="list-group-item list-group-item-action mb-1">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{ schedule.title }}</h5>
       <small class="text-muted">{{ schedule.schedule_date }}</small>
