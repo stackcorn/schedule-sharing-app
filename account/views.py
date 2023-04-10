@@ -37,7 +37,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             # Redirect to a success pag
-            return redirect('home:index')
+            return redirect('schedule:schedule_list')
         else:
             # Return an 'invalid login' error message.
             params['context'] = '入室に失敗しました。'
