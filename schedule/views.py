@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from .models import Schedule
+from .forms import CreateScheduleForm
 
 # Create your views here.
 
@@ -29,6 +30,19 @@ def schedule_delete(request, pk):
     params['schedule'] = schedule
     if request.method == 'POST':
         schedule.delete()
+        return redirect('schedule:schedule_list')
+    else:
+        return render(request, template_name, params)
+    
+@login_required
+def schedule_create(request):
+    template_name = 'schedule/schedule_create.html'
+    form = CreateScheduleForm(request.POST or None)
+    params = {'form': form}
+    if form.is_valid():
+        schedule = form.save(commit=False)
+        schedule.user = request.user
+        schedule.save()
         return redirect('schedule:schedule_list')
     else:
         return render(request, template_name, params)
