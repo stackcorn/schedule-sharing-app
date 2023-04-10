@@ -1,0 +1,19 @@
+{% extends 'home/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<h2 class="mb-3">Sign up</h2>
+<p class="mb-3">{{ context }}</p>
+<form method="POST">{% csrf_token %}
+  <div class="mb-3">
+    <label for="InputRoomName" class="form-label">Room Name</label>
+    {{ form.room_name | add_class:'form-control' }}
+  </div>
+  <div class="mb-3">
+    <label for="InputPassword" class="form-label">Password</label>
+    {{ form.password | add_class:'form-control' }}
+  </div>
+  <div id="passwordHelp" class="form-text mb-3">We'll never share your password with anyone else.</div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}
