@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 from .models import Schedule
 from .forms import CreateScheduleForm
@@ -46,3 +47,7 @@ def schedule_create(request):
         return redirect('schedule:schedule_list')
     else:
         return render(request, template_name, params)
+    
+def signout(request):
+    logout(request)
+    return redirect('account:signin')
