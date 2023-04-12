@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.9.16
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
