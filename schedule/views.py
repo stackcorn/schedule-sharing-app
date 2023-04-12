@@ -11,7 +11,7 @@ from .forms import CreateScheduleForm
 def schedule_list(request):
     template_name = 'schedule/list.html'
     params = {}
-    schedules = Schedule.objects.filter(user=request.user).all().order_by('created_at').reverse()
+    schedules = Schedule.objects.order_by('schedule_date').filter(user=request.user)
     params['schedules'] = schedules
     return render(request, template_name, params)
 
