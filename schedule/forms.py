@@ -8,7 +8,7 @@ class CreateScheduleForm(forms.ModelForm):
         fields = ['title', 'content', 'schedule_date']
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
-            'schedule_date': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'タイトル': forms.TextInput(attrs={'class': 'form-control'}),
+            '内容': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            '予定日': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
