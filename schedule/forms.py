@@ -2,7 +2,7 @@ from django import forms
 
 from .models import Schedule
 
-class CreateScheduleForm(forms.ModelForm):
+class ScheduleForm(forms.ModelForm):
     class Meta:
         model = Schedule
         fields = ['title', 'content', 'schedule_date']

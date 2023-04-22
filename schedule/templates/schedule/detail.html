@@ -16,6 +16,7 @@
   <hr>
   <div class="d-flex">
     <p class="me-3"><a href="{% url 'schedule:schedule_list' %}" class="btn">Back</a></p>
+    <p class="me-3"><a href="{% url 'schedule:schedule_update' schedule.pk %}" class="btn">Update schedule</a></p>
     <p><a href="{% url 'schedule:schedule_delete' schedule.pk %}" class="btn btn-outline-danger">Delete schedule</a></p>
   </div>
 </div>
