@@ -4,7 +4,7 @@
 {% block content %}
 <h2 class="mb-3">Sign in</h2>
 <h3>作った部屋に入室しよう！</h3>
-<p class="mb-3">{{ context }}</p>
+<p class="mb-3 mt-3 text-danger">{{ context }}</p>
 <form method="POST">{% csrf_token %}
   <div class="mb-3">
     <label for="InputRoomName" class="form-label">Room Name</label>
