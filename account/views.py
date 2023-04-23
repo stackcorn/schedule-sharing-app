@@ -17,7 +17,8 @@ def signup(request):
         password = form.cleaned_data['password']
         try:
             # User.objects.create_user()を実行した時点で、userは作成される
-            # ここではemailをusernameに入れている
+            # 変数名としてuserを使っているが、今回はusernameを部屋名（room_name）として使う
+            # 部屋は部屋名とパスワードを持つ
             user = User.objects.create_user(username=room_name, password=password)
             return redirect('account:signin')
         except IntegrityError:
@@ -40,7 +41,7 @@ def signin(request):
             return redirect('schedule:schedule_list')
         else:
             # Return an 'invalid login' error message.
-            params['context'] = '入室に失敗しました。'
+            params['context'] = '入室に失敗しました'
             return render(request, template_name, params)
     else:
         return render(request, template_name, params)
