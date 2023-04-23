@@ -9,27 +9,33 @@ from .models import *
 # Create your views here.
 def signup(request):
     template_name = 'account/signup.html'
-    form = RegisterRoomForm(request.POST or None)
+    form = SignupRoomForm(request.POST or None)
     params = {'form': form}
     if form.is_valid():
         # cleaned_data[フィールド名]で値をそれぞれ変数へ入れていく
         room_name = form.cleaned_data['room_name']
         password = form.cleaned_data['password']
-        try:
-            # User.objects.create_user()を実行した時点で、userは作成される
-            # 変数名としてuserを使っているが、今回はusernameを部屋名（room_name）として使う
-            # 部屋は部屋名とパスワードを持つ
-            user = User.objects.create_user(username=room_name, password=password)
-            return redirect('account:signin')
-        except IntegrityError:
-            params['context'] = 'この部屋名はすでに登録されています'
+        check_password = form.cleaned_data['check_password']
+        # 設定したいpasswordと確認用passwordが一致しているか確認する
+        if password == check_password:
+            try:
+                # User.objects.create_user()を実行した時点で、userは作成される
+                # 変数名としてuserを使っているが、今回はusernameを部屋名（room_name）として使う
+                # 部屋は部屋名とパスワードを持つ
+                user = User.objects.create_user(username=room_name, password=password)
+                return redirect('account:signin')
+            except IntegrityError:
+                params['context'] = 'この部屋名はすでに登録されています'
+                return render(request, template_name, params)
+        else:
+            params['context'] = 'パスワードが異なっています'
             return render(request, template_name, params)
     else:
         return render(request, template_name, params)
     
 def signin(request):
     template_name = 'account/signin.html'
-    form = RegisterRoomForm(request.POST or None)
+    form = SigninRoomForm(request.POST or None)
     params = {'form': form}
     if form.is_valid():
         room_name = form.cleaned_data['room_name']
