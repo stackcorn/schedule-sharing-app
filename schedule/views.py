@@ -6,7 +6,6 @@ from .models import *
 from .forms import *
 
 # Create your views here.
-
 @login_required
 def schedule_list(request):
     template_name = 'schedule/list.html'
