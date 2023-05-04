@@ -7,6 +7,6 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 RUN chmod a+x build.sh
-ENTRYPOINT [ "./build.sh" ]
+ENTRYPOINT [ "bash", "./build.sh" ]
 EXPOSE 8000
 CMD [ "gunicorn", "config.wsgi:application" ]
