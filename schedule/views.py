@@ -52,7 +52,7 @@ def schedule_update(request, pk):
     template_name = 'schedule/schedule_update.html'
     obj = get_object_or_404(Schedule, id=pk, user=request.user)
     form = ScheduleForm(request.POST or None, instance=obj)
-    params = {'form': form}
+    params = {'form': form, 'obj': obj}
     if form.is_valid():
         schedule = form.save(commit=False)
         schedule.user = request.user
@@ -60,7 +60,8 @@ def schedule_update(request, pk):
         return redirect('schedule:schedule_list')
     else:
         return render(request, template_name, params)
-    
+
+@login_required
 def signout(request):
     logout(request)
     return redirect('account:signin')
