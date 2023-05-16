@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 from .forms import *
 from .models import *
 
+
 # Create your views here.
 def signup(request):
     template_name = 'account/signup.html'
@@ -22,7 +23,8 @@ def signup(request):
                 # User.objects.create_user()を実行した時点で、userは作成される
                 # 変数名としてuserを使っているが、今回はusernameを部屋名（room_name）として使う
                 # 部屋は部屋名とパスワードを持つ
-                user = User.objects.create_user(username=room_name, password=password)
+                user = User.objects.create_user(
+                    username=room_name, password=password)
                 return redirect('account:signin')
             except IntegrityError:
                 params['context'] = 'この部屋名はすでに登録されています'
@@ -32,7 +34,8 @@ def signup(request):
             return render(request, template_name, params)
     else:
         return render(request, template_name, params)
-    
+
+
 def signin(request):
     template_name = 'account/signin.html'
     form = SigninRoomForm(request.POST or None)
