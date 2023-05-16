@@ -5,14 +5,17 @@ from django.contrib.auth import logout
 from .models import *
 from .forms import *
 
+
 # Create your views here.
 @login_required
 def schedule_list(request):
     template_name = 'schedule/list.html'
     params = {}
-    schedules = Schedule.objects.order_by('schedule_date').filter(user=request.user)
+    schedules = Schedule.objects.order_by(
+        'schedule_date').filter(user=request.user)
     params['schedules'] = schedules
     return render(request, template_name, params)
+
 
 @login_required
 def schedule_detail(request, pk):
@@ -21,6 +24,7 @@ def schedule_detail(request, pk):
     schedule = get_object_or_404(Schedule, id=pk, user=request.user)
     params['schedule'] = schedule
     return render(request, template_name, params)
+
 
 @login_required
 def schedule_delete(request, pk):
@@ -33,7 +37,8 @@ def schedule_delete(request, pk):
         return redirect('schedule:schedule_list')
     else:
         return render(request, template_name, params)
-    
+
+
 @login_required
 def schedule_create(request):
     template_name = 'schedule/schedule_create.html'
@@ -46,7 +51,8 @@ def schedule_create(request):
         return redirect('schedule:schedule_list')
     else:
         return render(request, template_name, params)
-    
+
+
 @login_required
 def schedule_update(request, pk):
     template_name = 'schedule/schedule_update.html'
@@ -61,7 +67,7 @@ def schedule_update(request, pk):
     else:
         return render(request, template_name, params)
 
-@login_required
+
 def signout(request):
     logout(request)
     return redirect('account:signin')
