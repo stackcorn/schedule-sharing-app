@@ -12,24 +12,28 @@ Djangoで作った、予定共有アプリです。
  
 * スケジュールの日程が昇順に並ぶようになってます。
 * スケジュール作成時に日付をカレンダーから入力できるようにしました。
+* Docker, docker-composeで環境構築をしました。
+
+# DEV
+* Macbook Air(M1, 2020)
+* Docker, docker-compose
+* Visual Studio Code
  
 # Requirement
  
+Python=3.9.16
+ 
+* asgiref==3.6.0
 * dj-database-url==1.3.0
 * Django==4.2
-* django-widget-tweaks==1.4.12
+* django-widgets-improved==1.5.0
 * gunicorn==20.1.0
+* psycopg2==2.9.6
 * python-dotenv==1.0.0
+* sqlparse==0.4.3
+* typing_extensions==4.5.0
 * whitenoise==6.4.0
- 
-# Installation
- 
-```bash
-pip install --upgrade pip
- 
-pip install -r requirements.txt
-```
- 
+　 
 # Usage
  
 1. 部屋名とパスワードを決める
